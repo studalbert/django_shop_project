@@ -33,7 +33,7 @@ class CatalogView(TemplateView):
     }
 
     def get_context_data(self, **kwargs):
-        context = super.get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         category_slug = kwargs.get('category_slug')
         categories = Category.objects.all()
         products = Product.objects.all().order_by('-created_at')
