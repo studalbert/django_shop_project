@@ -23,7 +23,7 @@ stripe_endpoint_secret = settings.STRIPE_WEBHOOK_SECRET
 
 
 def create_stripe_checkout_session(order, request):
-    cart = CartMixin.get_cart(request)
+    cart = CartMixin().get_cart(request)
     line_items = []
     for item in cart.items.select_related('product', 'product_size'):
         line_items.append({
